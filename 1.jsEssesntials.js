@@ -1,4 +1,4 @@
-//varibles are calues in the code
+//variables are values in the code
 
 firstName = "Mike";
 x = 2;
@@ -15,8 +15,9 @@ let myCar = "BMW";
 myCar = "Mercedes Benz";
 
 
-//varibles defining keywords
+//variables defining keywords
 let meaningLet = "has a block scope";
 var meaningVar = "has a global scope"
 const meaningConst = "can be only assigned onces"
+
 
