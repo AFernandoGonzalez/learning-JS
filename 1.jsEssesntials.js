@@ -21,7 +21,6 @@ var meaningVar = "has a global scope"
 const meaningConst = "can be only assigned onces"
 
 
-
 //Primitive data types
 // 1. String
 let singleString = 'im a single string'
