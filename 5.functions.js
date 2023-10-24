@@ -22,3 +22,11 @@ const power = function(base, exponent){
 }
 
 console.log(power(2,10));
+
+
+
+
+
+const hummus = ({ factor}) => {
+    const ingridient = func
+}
