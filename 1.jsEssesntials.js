@@ -113,3 +113,22 @@ strToNum = Number(strToNum)
 let strToBool1 = "this is a boolean?"
 strToBool1 = Boolean(strToBool1)
 // console.log(strToBool1, typeof strToBool1);
+
+
+
+
+
+
+let body = document.querySelector("body");
+
+body.appendChild(document.createElement('p')).innerText = 'this text will change when you click the button'
+
+body.appendChild(document.createElement('button')).innerText = 'click me'
+
+const myfunc = () => {
+    let updatedP = document.querySelector('p')
+    updatedP.innerText = 'Hello, JavaScript!'
+}
+
+let button = document.querySelector('button')
+button.addEventListener('click', myfunc)

@@ -12,23 +12,23 @@ const onSummitBtn = () => {
     const newLi = document.createElement('li');
     const newSpan = document.createElement('span');
     const newBtn = document.createElement('button');
-    
+
     newSpan.innerText = myInputValue
     newBtn.textContent = 'Delete'
-    
+
 
     const deleteLi = () => {
         myUl.removeChild(newLi)
     }
     newBtn.addEventListener('click', deleteLi)
-    
+
     newLi.appendChild(newSpan)
     newLi.appendChild(newBtn)
     myUl.appendChild(newLi)
 
     myInput.value = '';
     myInput.focus()
-    
+
 }
 
 
