@@ -1,32 +1,42 @@
 // reduce repetition, to associate names with subprograms, and to isolate these subprograms from each other
 
-const h1 = document.getElementsByClassName('myTitle');
-h1.htmlText = "hi";
 
-const square = (x) => {
-    return x * x;
-}
-console.log(square(3));
+const num1 = document.getElementById('num1');
+const num2 = document.getElementById('num2');
+
+const result = document.getElementById('result');
+
+const addButton = document.getElementById('addButton');
+
+const subtractButton = document.getElementById('subtractButton');
+
+const multiplyButton = document.getElementById('multiplyButton');
+
+const divideButton = document.getElementById('divideButton');
 
 
-
-const makeNoise = function () {
-    console.log("Pling!");
-}
-
-makeNoise()
-
-const power = function (base, exponent) {
-    let result = 1;
-    for (let count = 0; count < exponent; count++) {
-        result *= base
-    }
-    return result;
+const handleAddition = () => {
+    const sum = Number(num1.value) + Number(num2.value);
+    result.innerText = sum;
 }
 
-console.log(power(2, 10));
+const handleSubtraction = () => {
+    const sub = Number(num1.value) - Number(num2.value);
+    result.innerText = sub;
+}
+
+const handleMultiplication = () => {
+    const mult = Number(num1.value) * Number(num2.value);
+    result.innerText = mult;
+}
+
+ const handleDivision = () => {
+    const division = Number(num1.value) / Number(num2.value);
+    result.innerText = division;
+ }
 
 
-
-
-
+addButton.addEventListener('click', handleAddition);
+subtractButton.addEventListener('click', handleSubtraction);
+multiplyButton.addEventListener('click', handleMultiplication);
+divideButton.addEventListener('click', handleDivision);
