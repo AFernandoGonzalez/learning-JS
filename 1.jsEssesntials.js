@@ -119,16 +119,95 @@ strToBool1 = Boolean(strToBool1)
 
 
 
-let body = document.querySelector("body");
 
-body.appendChild(document.createElement('p')).innerText = 'this text will change when you click the button'
 
-body.appendChild(document.createElement('button')).innerText = 'click me'
-
-const myfunc = () => {
-    let updatedP = document.querySelector('p')
-    updatedP.innerText = 'Hello, JavaScript!'
+// 3. create a function that will change the text of the h1
+const handleChangeText = () => {
+    const h1 = document.getElementById('demo')
+    if (h1) {
+        h1.innerText = 'This text has hanged'
+    } else {
+        console.error('this h1 was not found');
+    }
 }
 
-let button = document.querySelector('button')
-button.addEventListener('click', myfunc)
+// 1. get the button
+const buttonText = document.getElementById('changeTextButton')
+
+// 2. add an event listener to the button
+if (buttonText) {
+    buttonText.addEventListener('click', handleChangeText)
+} else {
+    console.error("Button with id 'changeTextButton' not found' ")
+}
+
+
+
+
+
+// Example 1: Understanding the Basics
+const paragraph1 = document.getElementById('demo1')
+const buttonChangeText = document.getElementById('changeTextButton1')
+const buttonResetText = document.getElementById('resetTextButton1')
+
+const handleChangeText1 = () => {
+    if (buttonChangeText != null) {
+        paragraph1.innerText = 'This text has changed'
+    } else {
+        console.error('this h1 was not found');
+    }
+}
+
+const handleResetText = () => {
+    if (paragraph1 != null) {
+        paragraph1.innerText = 'This is a demo paragraph.'
+    }
+}
+
+buttonChangeText.addEventListener('click', handleChangeText1)
+buttonResetText.addEventListener('click', handleResetText)
+
+
+
+
+
+
+// Example 2: DOM Manipulation with Various Methods and Event Listeners
+
+// a.Select the "demo" paragraph element and store it in a variable.
+const paragraph2 = document.getElementById('demo2');
+
+// b.Create a function that changes the text color of the paragraph to red when called.
+const handleChangeColor = () => {
+    if(paragraph2.style.color === 'black'){
+        paragraph2.style.color = 'red'
+    }else{
+        paragraph2.style.color = 'black'
+    }
+}
+
+// c.Create another function that toggles the text's visibility (hides/shows) when called.
+
+const handleToggleVisibility = () => {
+    if(paragraph2.style.visibility === 'visible'){
+        paragraph2.style.visibility = 'hidden'
+    }else{
+        paragraph2.style.visibility = 'visible'
+    }
+}
+
+// d.Add an event listener to the paragraph itself that toggles the text visibility when clicked.
+paragraph2.addEventListener('click', handleToggleVisibility)
+
+// e.Select the "changeTextButton" button and store it in a variable.
+const changeTextButton2 = document.getElementById('changeTextButton2')
+
+// f.Add an event listener to the "changeTextButton" that changes the text content of the paragraph when clicked.
+changeTextButton2.addEventListener('click', handleChangeColor )
+
+// g.Select the "resetTextButton" button and store it in a variable.
+
+const resetTextButton2 = document.getElementById('resetTextButton2')
+
+// h.Add an event listener to the "resetTextButton" that resets the paragraph's text and visibility.
+resetTextButton2.addEventListener('click', handleToggleVisibility)
