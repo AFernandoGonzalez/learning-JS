@@ -79,8 +79,8 @@ const products = [
 const selectedProduct = { id: 2 };
 
 
-console.log(checkAvailability(products, selectedProduct));
-console.log(checkAvailability2(products, selectedProduct));
+// console.log(checkAvailability(products, selectedProduct));
+// console.log(checkAvailability2(products, selectedProduct));
 
 
 
@@ -112,7 +112,7 @@ function formatFullName1(firstName, lastName) {
 const firstN = "fer"
 const lastN = "gon"
 
-console.log(formatFullName1(firstN, lastN));
+//console.log(formatFullName1(firstN, lastN));
 
 
 
@@ -177,7 +177,7 @@ function greet(name) {
 function greet(name) {
     return name ? 'Hello, ' + name + '!' : 'Hello, stranger!';
 }
-console.log(greet());
+//console.log(greet());
 
 
 //unclean Function
@@ -194,4 +194,108 @@ function calculatePrice(quantity, unitPrice){
     return quantity > 0 && unitPrice> 0 ? quantity * unitPrice : 0;
 }
 
-console.log(calculatePrice(2,3));
+//console.log(calculatePrice(2,3));
+
+
+
+
+
+
+// intermediate - level functions
+
+// Unclean Function 1
+function findLargest(numbers) {
+    let largest = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+    return largest;
+}
+
+function findLargest1(numbers){
+    if(numbers.length === 0){
+        return undefined
+    }
+    return Math.max(...numbers)
+}
+
+function findLargest2(numbers) {
+    return numbers.length > 0 ? numbers.reduce((max, num) => Math.max(max, num)) : undefined;
+}
+
+
+
+let numbersArrays = [1,2,3,10,45]
+//console.log(findLargest2(numbersArrays));
+
+
+
+//using reduce
+const nestedArray = [[1, 2], [3, 4], [5, 6]];
+const flatArray = nestedArray.reduce((accumulator, currentValue) => accumulator.concat(currentValue), []);
+//console.log(flatArray);
+
+const data = [
+    { category: 'A', value: 10 },
+    { category: 'B', value: 15 },
+    { category: 'A', value: 20 },
+    { category: 'A', value: 5 },
+];
+
+const groupedData = data.reduce((accumulator, item) => {
+    accumulator[item.category] = (accumulator[item.category] || 0) + item.value;
+    return accumulator;
+}, {});
+
+//console.log(groupedData);
+
+
+
+// Unclean Function 2
+function calculateAverage(numbers) {
+    let sum = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    return sum / numbers.length;
+}
+
+function calculateAverage1(numbers) {
+    //calculating the average of an empty array doesn't make mathematical sense because division by zero is undefined.
+    if(numbers.length === 0){
+        return 0
+    }
+    const avg = numbers.reduce((accumulator, num) => accumulator + num, 0) / numbers.length
+    return avg
+}
+
+const numbersListAvg = [1,2,3,4,5]
+// console.log("numbersListAvg: ", calculateAverage1(numbersListAvg));
+
+
+// Unclean Function 3
+function filterPositiveNumbers(numbers) {
+    let positiveNumbers = [];
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > 0) {
+            positiveNumbers.push(numbers[i]);
+        }
+    }
+    return positiveNumbers;
+}
+
+
+function filterPositiveNumbers1(numbers){
+    return numbers.filter(number => number > 0)
+}
+
+
+const positiveNumList = [-1,1, -2, 3, 4, 5]
+console.log("positive numbers ", filterPositiveNumbers1(positiveNumList));
+
+
+
+
+
