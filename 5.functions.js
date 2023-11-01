@@ -30,10 +30,10 @@ const handleMultiplication = () => {
     result.innerText = mult;
 }
 
- const handleDivision = () => {
+const handleDivision = () => {
     const division = Number(num1.value) / Number(num2.value);
     result.innerText = division;
- }
+}
 
 
 addButton.addEventListener('click', handleAddition);
@@ -49,7 +49,7 @@ divideButton.addEventListener('click', handleDivision);
 function checkAvailability(products, selectedProduct) {
     let isAvailable = false;
     for (let i = 0; i < products.length; i++) {
-        if (products[i].id === selectedProduct.id ) {
+        if (products[i].id === selectedProduct.id) {
             if (products[i].quantity > 0) {
                 isAvailable = true;
                 break;
@@ -61,8 +61,8 @@ function checkAvailability(products, selectedProduct) {
 
 // clean function
 function checkAvailability2(products, selectedProduct) {
-    for (let i = 0; i < products.length; i++){
-        if(products[i].id === selectedProduct.id && products[i].quantity >  0){
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id === selectedProduct.id && products[i].quantity > 0) {
             return true;
         }
     }
@@ -102,7 +102,7 @@ function formatFullName(firstName, lastName) {
 
 // clean Function:
 function formatFullName1(firstName, lastName) {
-    if(firstName && lastName){
+    if (firstName && lastName) {
         return firstName + " " + lastName
     }
     return firstName || lastName || ""
@@ -132,7 +132,7 @@ function calculateArea(length, width) {
 
 //clean Function 1:
 function calculateArea(length, width) {
-    if(length > 0 && width > 0 ){
+    if (length > 0 && width > 0) {
         return length * width
     }
     return 0
@@ -154,7 +154,7 @@ function isEvenOrOdd(number) {
 
 // clean Function 2:
 function isEvenOrOdd(number) {
-    if(number % 2 === 0){
+    if (number % 2 === 0) {
         return 'even'
     }
     return 'odd'
@@ -190,8 +190,8 @@ function calculatePrice(quantity, unitPrice) {
 }
 
 // clean function
-function calculatePrice(quantity, unitPrice){
-    return quantity > 0 && unitPrice> 0 ? quantity * unitPrice : 0;
+function calculatePrice(quantity, unitPrice) {
+    return quantity > 0 && unitPrice > 0 ? quantity * unitPrice : 0;
 }
 
 //console.log(calculatePrice(2,3));
@@ -214,8 +214,8 @@ function findLargest(numbers) {
     return largest;
 }
 
-function findLargest1(numbers){
-    if(numbers.length === 0){
+function findLargest1(numbers) {
+    if (numbers.length === 0) {
         return undefined
     }
     return Math.max(...numbers)
@@ -227,7 +227,7 @@ function findLargest2(numbers) {
 
 
 
-let numbersArrays = [1,2,3,10,45]
+let numbersArrays = [1, 2, 3, 10, 45]
 //console.log(findLargest2(numbersArrays));
 
 
@@ -264,14 +264,14 @@ function calculateAverage(numbers) {
 
 function calculateAverage1(numbers) {
     //calculating the average of an empty array doesn't make mathematical sense because division by zero is undefined.
-    if(numbers.length === 0){
+    if (numbers.length === 0) {
         return 0
     }
     const avg = numbers.reduce((accumulator, num) => accumulator + num, 0) / numbers.length
     return avg
 }
 
-const numbersListAvg = [1,2,3,4,5]
+const numbersListAvg = [1, 2, 3, 4, 5]
 // console.log("numbersListAvg: ", calculateAverage1(numbersListAvg));
 
 
@@ -287,15 +287,121 @@ function filterPositiveNumbers(numbers) {
 }
 
 
-function filterPositiveNumbers1(numbers){
+function filterPositiveNumbers1(numbers) {
     return numbers.filter(number => number > 0)
 }
 
 
-const positiveNumList = [-1,1, -2, 3, 4, 5]
-console.log("positive numbers ", filterPositiveNumbers1(positiveNumList));
+const positiveNumList = [-1, 1, -2, 3, 4, 5]
+//console.log("positive numbers ", filterPositiveNumbers1(positiveNumList));
 
 
 
 
+
+
+// Unclean Function 4:
+
+function mergeArrays(arr1, arr2) {
+    const mergedArray = [];
+    for (let i = 0; i < arr1.length; i++) {
+        mergedArray.push(arr1[i]);
+    }
+    for (let i = 0; i < arr2.length; i++) {
+        mergedArray.push(arr2[i]);
+    }
+    return mergedArray;
+}
+
+
+// clean Function 4:
+function mergeArrays1(arr1, arr2) {
+    return [...arr1, ...arr2]
+}
+function mergeArrays2(arr1, arr2) {
+    const a1 = arr1.reduce((accumulator, val) => accumulator.concat(val), [])
+    const a2 = arr2.reduce((accumulator, val2) => accumulator.concat(val2), [])
+    return a1.concat(a2);
+
+}
+
+const mergeArr1 = [1, 2]
+const mergeArr2 = ["hi", 1, 5, 'fernando']
+console.log("mergeArrays", mergeArrays1(mergeArr1, mergeArr2));
+// console.log("mergeArrays", mergeArrays2(mergeArr1, mergeArr2));
+
+
+
+//UnClean Function 5:
+function capitalizeWords(words) {
+    const capitalizedWords = [];
+    for (let i = 0; i < words.length; i++) {
+        capitalizedWords.push(words[i].toUpperCase());
+    }
+    return capitalizedWords;
+}
+
+// Clean Function 5:
+function capitalizeWords1(words){
+    return words.map((word) => word.toUpperCase() )
+}
+
+const capArr2 = ["hi", 'fernando']
+// console.log("capitalizeWords", capitalizeWords1(capArr2));
+
+
+
+//UnClean Function 6:
+function reverseString(str) {
+    let reversedStr = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversedStr += str[i];
+    }
+    return reversedStr;
+}
+
+//Clean Function 6:
+
+function reverseString1(str) {
+    return revStr = str.reverse().join('')
+}
+
+
+const reverseArr = ["hi", "-", 'fernando']
+// console.log("reverseString", reverseString1(reverseArr));
+
+
+
+
+
+
+// Unclean all concept Function:
+
+function arrayStatistics(numbers) {
+    let sum = 0;
+    let average = 0;
+    let largest = numbers[0];
+    let smallest = numbers[0];
+
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+
+        if (numbers[i] < smallest) {
+            smallest = numbers[i];
+        }
+    }
+
+    average = sum / numbers.length;
+
+    return {
+        sum: sum,
+        average: average,
+        largest: largest,
+        smallest: smallest
+    };
+}
 
