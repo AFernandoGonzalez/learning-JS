@@ -98,3 +98,80 @@ function formatFullName(firstName, lastName) {
         return '';
     }
 }
+
+
+// clean Function:
+function formatFullName1(firstName, lastName) {
+    if(firstName && lastName){
+        return firstName + " " + lastName
+    }
+    return firstName || lastName || ""
+}
+
+
+const firstN = "fer"
+const lastN = "gon"
+
+console.log(formatFullName1(firstN, lastN));
+
+
+
+
+
+
+
+//Unclean Function 1:
+function calculateArea(length, width) {
+    if (length > 0 && width > 0) {
+        return length * width;
+    } else {
+        return 0;
+    }
+}
+
+// Unclean Function 2:
+function isEvenOrOdd(number) {
+    if (number % 2 === 0) {
+        return 'even';
+    } else {
+        return 'odd';
+    }
+}
+
+// Unclean Function 3:
+function greet(name) {
+    if (name) {
+        return 'Hello, ' + name + '!';
+    } else {
+        return 'Hello, stranger!';
+    }
+}
+
+
+
+//clean Function 1:
+function calculateArea(length, width) {
+    if (length > 0 && width > 0) {
+        return length * width;
+    } else {
+        return 0;
+    }
+}
+
+// clean Function 2:
+function isEvenOrOdd(number) {
+    if (number % 2 === 0) {
+        return 'even';
+    } else {
+        return 'odd';
+    }
+}
+
+// clean Function 3:
+function greet(name) {
+    if (name) {
+        return 'Hello, ' + name + '!';
+    } else {
+        return 'Hello, stranger!';
+    }
+}
