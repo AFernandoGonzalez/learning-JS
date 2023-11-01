@@ -3,5 +3,6 @@
 
     },
     "github.copilot.editor.enableCodeActions": true,
-    "github.copilot.editor.iterativeFixing": true
+    "github.copilot.editor.iterativeFixing": true,
+    "github.copilot.editor.enableAutoCompletions": false
 }
