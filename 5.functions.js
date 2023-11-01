@@ -129,6 +129,20 @@ function calculateArea(length, width) {
     }
 }
 
+
+//clean Function 1:
+function calculateArea(length, width) {
+    if(length > 0 && width > 0 ){
+        return length * width
+    }
+    return 0
+}
+function calculateArea(length, width) {
+    return length > 0 && width > 0 ? length * width : 0;
+}
+
+
+
 // Unclean Function 2:
 function isEvenOrOdd(number) {
     if (number % 2 === 0) {
@@ -136,6 +150,17 @@ function isEvenOrOdd(number) {
     } else {
         return 'odd';
     }
+}
+
+// clean Function 2:
+function isEvenOrOdd(number) {
+    if(number % 2 === 0){
+        return 'even'
+    }
+    return 'odd'
+}
+function isEvenOrOdd(number) {
+    return number % 2 === 0 ? 'even' : 'odd';
 }
 
 // Unclean Function 3:
@@ -148,30 +173,25 @@ function greet(name) {
 }
 
 
+// clean Function 3:
+function greet(name) {
+    return name ? 'Hello, ' + name + '!' : 'Hello, stranger!';
+}
+console.log(greet());
 
-//clean Function 1:
-function calculateArea(length, width) {
-    if (length > 0 && width > 0) {
-        return length * width;
+
+//unclean Function
+function calculatePrice(quantity, unitPrice) {
+    if (quantity > 0 && unitPrice > 0) {
+        return quantity * unitPrice;
     } else {
         return 0;
     }
 }
 
-// clean Function 2:
-function isEvenOrOdd(number) {
-    if (number % 2 === 0) {
-        return 'even';
-    } else {
-        return 'odd';
-    }
+// clean function
+function calculatePrice(quantity, unitPrice){
+    return quantity > 0 && unitPrice> 0 ? quantity * unitPrice : 0;
 }
 
-// clean Function 3:
-function greet(name) {
-    if (name) {
-        return 'Hello, ' + name + '!';
-    } else {
-        return 'Hello, stranger!';
-    }
-}
+console.log(calculatePrice(2,3));
