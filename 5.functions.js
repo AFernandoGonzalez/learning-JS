@@ -684,3 +684,20 @@ function printFarmInventory(cows, chickens) {
     console.log(`${chickenString} Chickens`);
 }
 printFarmInventory(7, 11);
+
+
+// define a variable to have a function value
+const valueFromFunc = function myFunc(a){
+    console.log('hi there', a);
+}
+valueFromFunc('fer')
+
+// Declare g to be a function
+function declarativeFunc(num){
+    console.log("Total: ",num * num);
+}
+declarativeFunc(5)
+
+//// A less verbose function value
+const arrowFunc = num => console.log("Result: ", num + num * 2);
+arrowFunc( 3) 
