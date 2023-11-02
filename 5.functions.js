@@ -344,8 +344,8 @@ function capitalizeWords(words) {
 }
 
 // Clean Function 5:
-function capitalizeWords1(words){
-    return words.map((word) => word.toUpperCase() )
+function capitalizeWords1(words) {
+    return words.map((word) => word.toUpperCase())
 }
 
 const capArr2 = ["hi", 'fernando']
@@ -407,17 +407,17 @@ function arrayStatistics(numbers) {
     };
 }
 
-function arrayStatistics1(numbers){
+function arrayStatistics1(numbers) {
     let sum = numbers.reduce((accumulator, num) => accumulator + num, 0)
     let average = numbers.length > 0 ? sum / numbers.length : 0;
     let largest = numbers.length > 0 ? Math.max(...numbers) : 0;
     let smallest = numbers.length > 0 ? Math.min(...numbers) : 0;
 
-    return { sum: sum, average:average, largest: largest, smallest: smallest}
+    return { sum: sum, average: average, largest: largest, smallest: smallest }
 
 }
 
-const arrayStat = [1,2,3,4]
+const arrayStat = [1, 2, 3, 4]
 // console.log(arrayStatistics1(arrayStat));
 
 
@@ -441,7 +441,7 @@ function addToCart(itemName, itemPrice, quantity = 1) {
             return;
         }
     }
-    
+
 
     shoppingCart.push(newItem);
 }
@@ -488,12 +488,13 @@ const shoppingCart1 = [];
 
 function addToCart1(itemName, itemPrice, quantity) {
     const existingItem = shoppingCart1.find((item) => item.name === itemName)
-    existingItem ? existingItem.quantity += quantity : shoppingCart1.push({name: itemName,price : itemPrice,quantity
+    existingItem ? existingItem.quantity += quantity : shoppingCart1.push({
+        name: itemName, price: itemPrice, quantity
     })
 
 }
 
-function removeFromCart1(itemName, quantity){
+function removeFromCart1(itemName, quantity) {
     const itemIndex = shoppingCart1.findIndex((item) => item.name === itemName);
     if (itemIndex !== -1) {
         shoppingCart1[itemIndex].quantity -= quantity;
@@ -511,18 +512,18 @@ function calculateTotal1() {
 function displayCart1() {
     let cartContent = []
     console.log(`New Shopping Cart Contents:`);
-    shoppingCart1.forEach((item)=> {
+    shoppingCart1.forEach((item) => {
         cartContent += `${item.name} - $${item.price} x ${item.quantity}\n`
     })
     console.log(`${cartContent}===============Total: $${calculateTotal1()}`)
 }
 
 // Example usage
-addToCart1('Shirt', 20, 1);
-addToCart1('Shoes', 50, 3);
-removeFromCart1('Shirt', 10);
-removeFromCart1('Shoes', 2);
-displayCart1();
+// addToCart1('Shirt', 20, 1);
+// addToCart1('Shoes', 50, 3);
+// removeFromCart1('Shirt', 10);
+// removeFromCart1('Shoes', 2);
+// displayCart1();
 
 
 
@@ -533,15 +534,15 @@ displayCart1();
 
 
 
-function calculateDiscountedPrice (originalPrice, discountPercentage) {
-    
+function calculateDiscountedPrice(originalPrice, discountPercentage) {
+
     discountedPrice = (originalPrice - (originalPrice * (discountPercentage / 100))).toFixed(2)
 
     console.log(`Your original price was: ${originalPrice} and your total discount is ${discountedPrice}`);
 }
 
-calculateDiscountedPrice(50, 20)
-calculateDiscountedPrice(75, 15)
+// calculateDiscountedPrice(50, 20)
+// calculateDiscountedPrice(75, 15)
 
 
 
@@ -560,18 +561,78 @@ calculateDiscountedPrice(75, 15)
 
 
 function generateRandomPassword(length) {
-
-    let result = []
-    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*"
-    
-    const splitArr = chars.split('')
-    
-    for (let i = 0; i <= length; i++){
-        const randomIndex =  Math.floor(Math.random() * splitArr.length)
-        result += splitArr[randomIndex]
+    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+    let passResult = '';
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length)
+        passResult += characters[randomIndex]
     }
-    console.log(result);
+    return passResult
+}
+function generateRandomPassword1(length) {
+    const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+    const arr = Array.from({ length }, () => characters[Math.floor(Math.random() * characters.length)])
+    return arr.join('')
 }
 
 generateRandomPassword(10)
-generateRandomPassword(16)
+generateRandomPassword1(16)
+// console.log("pass1: ", generateRandomPassword(10));
+// console.log("pass2: ", generateRandomPassword(16));
+
+
+
+
+
+
+
+const hummus = (factor)=> {
+    const ingredient = function (amount, unit, name) {
+        let ingredientAmount = amount * factor;
+        if (ingredientAmount > 1) {
+            unit += "s";
+        }
+        console.log(`${ingredientAmount} ${unit} ${name}`);
+    };
+    ingredient(1, "can", "chickpeas");
+    ingredient(0.25, "cup", "tahini");
+    ingredient(0.25, "cup", "lemon juice");
+    ingredient(1, "clove", "garlic");
+    ingredient(2, "tablespoon", "olive oil");
+    ingredient(0.5, "teaspoon", "cumin");
+};
+
+// hummus(1)
+
+// console.log("The future says:", future());
+
+function future() {
+    return "You'll never have flying cars";
+}
+
+
+
+// 1 parameter
+const oneParameter  = x => x * 2
+console.log("Result of 1 parameter and parenthesis : ",oneParameter(3));
+
+
+function greet(who) {
+    console.log("Hello " + who);
+}
+greet("Harry");
+console.log("Bye");
+
+
+function wrapValue(n) {
+    let local = n;
+    return () => local;
+}
+
+let wrap1 = wrapValue(1);
+let wrap2 = wrapValue(2);
+
+console.log(wrap1());
+console.log(wrap2());
+console.log(wrapValue(1)());
+console.log(wrapValue(2)());
