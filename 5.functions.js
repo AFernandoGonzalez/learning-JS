@@ -523,3 +523,55 @@ addToCart1('Shoes', 50, 3);
 removeFromCart1('Shirt', 10);
 removeFromCart1('Shoes', 2);
 displayCart1();
+
+
+
+
+
+
+
+
+
+
+function calculateDiscountedPrice (originalPrice, discountPercentage) {
+    
+    discountedPrice = (originalPrice - (originalPrice * (discountPercentage / 100))).toFixed(2)
+
+    console.log(`Your original price was: ${originalPrice} and your total discount is ${discountedPrice}`);
+}
+
+calculateDiscountedPrice(50, 20)
+calculateDiscountedPrice(75, 15)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function generateRandomPassword(length) {
+
+    let result = []
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*"
+    
+    const splitArr = chars.split('')
+    
+    for (let i = 0; i <= length; i++){
+        const randomIndex =  Math.floor(Math.random() * splitArr.length)
+        result += splitArr[randomIndex]
+    }
+    console.log(result);
+}
+
+generateRandomPassword(10)
+generateRandomPassword(16)
