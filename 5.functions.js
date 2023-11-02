@@ -315,9 +315,11 @@ function mergeArrays(arr1, arr2) {
 
 
 // clean Function 4:
+// cleaner version
 function mergeArrays1(arr1, arr2) {
     return [...arr1, ...arr2]
 }
+
 function mergeArrays2(arr1, arr2) {
     const a1 = arr1.reduce((accumulator, val) => accumulator.concat(val), [])
     const a2 = arr2.reduce((accumulator, val2) => accumulator.concat(val2), [])
@@ -327,7 +329,7 @@ function mergeArrays2(arr1, arr2) {
 
 const mergeArr1 = [1, 2]
 const mergeArr2 = ["hi", 1, 5, 'fernando']
-console.log("mergeArrays", mergeArrays1(mergeArr1, mergeArr2));
+// console.log("mergeArrays", mergeArrays1(mergeArr1, mergeArr2));
 // console.log("mergeArrays", mergeArrays2(mergeArr1, mergeArr2));
 
 
@@ -405,3 +407,119 @@ function arrayStatistics(numbers) {
     };
 }
 
+function arrayStatistics1(numbers){
+    let sum = numbers.reduce((accumulator, num) => accumulator + num, 0)
+    let average = numbers.length > 0 ? sum / numbers.length : 0;
+    let largest = numbers.length > 0 ? Math.max(...numbers) : 0;
+    let smallest = numbers.length > 0 ? Math.min(...numbers) : 0;
+
+    return { sum: sum, average:average, largest: largest, smallest: smallest}
+
+}
+
+const arrayStat = [1,2,3,4]
+// console.log(arrayStatistics1(arrayStat));
+
+
+
+
+
+
+const shoppingCart = [];
+
+function addToCart(itemName, itemPrice, quantity = 1) {
+    const newItem = {
+        name: itemName,
+        price: itemPrice,
+        quantity: quantity
+    };
+
+    // Check if the item already exists in the cart
+    for (let i = 0; i < shoppingCart.length; i++) {
+        if (shoppingCart[i].name === itemName) {
+            shoppingCart[i].quantity += quantity;
+            return;
+        }
+    }
+    
+
+    shoppingCart.push(newItem);
+}
+
+function removeFromCart(itemName, quantity = 1) {
+    for (let i = 0; i < shoppingCart.length; i++) {
+        if (shoppingCart[i].name === itemName) {
+            shoppingCart[i].quantity -= quantity;
+            if (shoppingCart[i].quantity <= 0) {
+                shoppingCart.splice(i, 1);
+            }
+            return;
+        }
+    }
+}
+
+function calculateTotal() {
+    let total = 0;
+    for (let i = 0; i < shoppingCart.length; i++) {
+        total += shoppingCart[i].price * shoppingCart[i].quantity;
+    }
+    return total;
+}
+
+function displayCart() {
+    console.log('Shopping Cart Contents:');
+    for (let i = 0; i < shoppingCart.length; i++) {
+        console.log(`${shoppingCart[i].name} - $${shoppingCart[i].price} x ${shoppingCart[i].quantity}`);
+    }
+    console.log(`Total: $${calculateTotal()}`);
+}
+
+// Example usage
+// addToCart('Shirt', 20);
+// addToCart('Shoes', 50, 3);
+// removeFromCart('Shirt', 1);
+// displayCart();
+
+
+
+
+// Clean Version
+const shoppingCart1 = [];
+
+function addToCart1(itemName, itemPrice, quantity) {
+    const existingItem = shoppingCart1.find((item) => item.name === itemName)
+    existingItem ? existingItem.quantity += quantity : shoppingCart1.push({name: itemName,price : itemPrice,quantity
+    })
+
+}
+
+function removeFromCart1(itemName, quantity){
+    const itemIndex = shoppingCart1.findIndex((item) => item.name === itemName);
+    if (itemIndex !== -1) {
+        shoppingCart1[itemIndex].quantity -= quantity;
+        if (shoppingCart1[itemIndex].quantity <= 0) {
+            shoppingCart1.splice(itemIndex, 1);
+        }
+    }
+
+}
+
+function calculateTotal1() {
+    return shoppingCart1.reduce((total, item) => total + item.price * item.quantity, 0)
+}
+
+function displayCart1() {
+    let cartContent = []
+    console.log(`New Shopping Cart Contents:`);
+    shoppingCart1.forEach((item)=> {
+        cartContent += `${item.name} - $${item.price} x ${item.quantity}\n`
+    })
+    console.log(`${cartContent}===============Total: $${calculateTotal1()}`)
+}
+
+// Example usage
+addToCart1('Shirt', 20, 1);
+addToCart1('Shoes', 50, 3);
+removeFromCart1('Shirt', 10);
+removeFromCart1('Shoes', 2);
+displayCart1();
