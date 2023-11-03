@@ -27,7 +27,7 @@ const span = document.getElementById('result')
 
 const handleFahrenheitConversion = () => {
     const fahrenheitTemp = (celsiusInput.value * 9/5) + 32;
-    span.innerText = fahrenheitTemp  
+    span.innerText = `${fahrenheitTemp} F`  
     celsiusInput.value = ''  
     celsiusInput.focus()
 }
@@ -35,3 +35,11 @@ const handleFahrenheitConversion = () => {
 
 convertButton.addEventListener('click', handleFahrenheitConversion);
 
+
+
+newNamesArray = new Array(5)
+// newNamesArray = ['Jo', 'Fe', 'Tr', 10]
+console.log(newNamesArray);
+
+const myInitials = newNamesArray[1]
+console.log(myInitials);
