@@ -68,3 +68,6 @@ addButton.addEventListener('click', () => {
         displayBooks();
     }
 })
+
+
+listBooks()
