@@ -1,36 +1,3 @@
-
-
-// use functions to 
-// add books to the object, 
-// list books, and 
-// display book information in the HTML.
-
-
-const books = [
-    {
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        description: "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
-        ISBN: "9780743273565",
-        year: 1925,
-    },
-    {
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        description: "The story of racial injustice and the loss of innocence in the American South during the 1930s.",
-        ISBN: "9780061120084",
-        year: 1960,
-    },
-    {
-        title: "1984",
-        author: "George Orwell",
-        description: "A dystopian novel that explores the consequences of a totalitarian regime, mass surveillance, and thought control.",
-        ISBN: "9780451524935",
-        year: 1949,
-    },
-];
-
-
 const titleInput = document.getElementById('titleInput')
 const authorInput = document.getElementById('authorInput')
 const descriptionInput = document.getElementById('descriptionInput')
@@ -39,8 +6,28 @@ const yearInput = document.getElementById('yearInput')
 const addButton = document.getElementById('addButton')
 
 const bookList = document.getElementById('bookList')
+const books = []
 
+const addBook = (title, author, description, ISBN, year) => {
+    const newBook = {
+        title,
+        author,
+        description,
+        ISBN,
+        year
+        // title: titleInput.value,
+        // author: authorInput.value,
+        // description: descriptionInput.value,
+        // ISBN: isbnInput.value,
+        // year: yearInput.value
+    }
+    books.push(newBook)
+}
+const listBooks = () => {
+    return books
+}
 const displayBooks = () => {
+    bookList.innerHTML = ''; // Clear the book list
 
     books.map((book) => {
         const bookItem = document.createElement('li')
@@ -64,26 +51,20 @@ const displayBooks = () => {
         headingTitle.innerText = book.title
         headingAuthor.innerText = book.author
         paragraphDesc.innerText = book.description
-        spanISBN.innerText = book.ISBN
+        spanISBN.innerText = "#" + book.ISBN
         spanYear.innerText = book.year
     })
-
-
-    const addBook = () => {
-        const newBook = {
-            title: titleInput.value,
-            author: authorInput.value,
-            description: descriptionInput.value,
-            ISBN: isbnInput.value,
-            year: yearInput.value
-        }
-        books.push(newBook)
-
-        displayBooks()
-    }
-
-    addButton.addEventListener('click', addBook)
-    
 }
 
-displayBooks()
+addButton.addEventListener('click', () => {
+    const title = titleInput.value
+    const author = authorInput.value
+    const description = descriptionInput.value
+    const ISBN = isbnInput.value
+    const year = yearInput.value
+
+    if (titleInput && authorInput && descriptionInput && isbnInput && year) {
+        addBook(title, author, description, ISBN, year);
+        displayBooks();
+    }
+})
