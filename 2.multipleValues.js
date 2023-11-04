@@ -160,3 +160,22 @@ console.log("concatList: ", concatList);
 console.log(arrShoppingList);
 
 // (7) ['Bananas', 'Carrots', 'Lettuce', 'Eggs', 'Milk', 'Juice', 'Pop']
+
+
+
+let listOfNumbers = [2, 3, 5, 7, 11];
+console.log(listOfNumbers[2]);
+
+let descriptions = {
+    work: "Went to work",
+    "touched tree": "Touched a tree"
+};
+
+console.log(Object.keys({
+    work: "Went to work",
+    "touched tree": "Touched a tree"
+}));
+console.log(Object.values({
+    work: "Went to work",
+    "touched tree": "Touched a tree"
+}));

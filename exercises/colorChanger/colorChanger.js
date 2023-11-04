@@ -50,12 +50,19 @@ const minFunc =(min, max)=>{
 // Your code here.
 
 const isEven = (num) => {
-    if(num%2 === 0){
-        return true
-    }else{
-        return false
+    if (num < 0) {
+        num = Math.abs(num); // Convert negative numbers to positive
     }
-}
+
+    if (num === 0) {
+        return true;  // Zero is even
+    } else if (num === 1) {
+        return false;  // One is odd
+    } else {
+        return isEven(num - 2); // Recursively check for evenness
+    }
+};
+
 
 console.log(isEven(50));
 // → true
