@@ -61,3 +61,102 @@ console.log("my shopping list length: ", shoppingList.length);
 shoppingList[1] = "Bananas"
 // 4. Output your entire list to the console
 console.log("updated shopping list: ", shoppingList);
+
+
+
+
+
+
+//arrays methods
+
+//push() adds to end
+favoriteFruits = ["grapefruit", "orange", "lemon"];
+favoriteFruits.push('grapes')
+
+let anotherFruit = favoriteFruits.push('apple')
+let anotherFruitForArray = favoriteFruits.push('strawberries')
+console.log("favoriteFruits with PUSH: added to end", favoriteFruits);
+
+// pop() last item delete
+let popItem = favoriteFruits.pop()
+console.log("popItem: last Item", popItem);
+
+//shift() first item delete
+let shiftItem = favoriteFruits.shift()
+console.log("shiftItem: first Item", shiftItem);
+
+// add after 2 items not index which starts at 0
+favoriteFruits.splice(2, 0 , "knife", "car")
+console.log("favoriteFruits with SLICE: ", favoriteFruits);
+
+// adds after 2 and deletes 1 after added items
+favoriteFruits.splice(2, 1 , "2", "3")
+console.log("favoriteFruits with SLICE: ", favoriteFruits);
+
+
+
+
+let arr5 = [1, 2, 3];
+let arr6 = [4, 5, 6];
+let arrConcat = arr5.concat(arr6)
+console.log("Concatenated array:", arrConcat);
+let arr8 = arrConcat.concat(123, 190)
+console.log("New Concatenated array:", arr8);
+
+
+
+const arr9 = [1,2,3,4,"car",6,7,8,9,0]
+const arrIndexUndefined = arr9.find(e => e === 10)
+console.log("arrIndex: ", arrIndexUndefined);
+const arrIndex = arr9.find(e => e === "car")
+console.log("arrIndex: ", arrIndex);
+
+let arrFindIndex = arr9.indexOf("car")
+console.log("arrFindIndex: ", arrFindIndex);
+
+
+let animals = ["dog", "horse", "cat", "platypus", "dog"];
+let lastDog = animals.lastIndexOf("dog");
+console.log("lastDog: ", lastDog);
+
+
+//SORTING
+let names = ["James", "Alicia", "Fatiha", "Maria", "Bert"];
+console.log("Sort: ", names.sort());
+let ages = [18, 72, 33, 56, 40];
+console.log("Ages: ", ages.sort());
+
+
+// REVERSING
+console.log("REVERSE: ", names.reverse());
+
+
+
+
+
+
+// Practice exercise 3.2
+// 1. Create an empty array to use as a shopping list.
+let arrShoppingList = new Array()
+// 2. Add Milk, Bread, and Apples to your list.
+arrShoppingList.push("Milk", "Bread", "Apples")
+// 3. Update "Bread" with Bananas and Eggs.
+arrShoppingList.splice(1, 1,"Bananas", "Eggs")
+// 4. Remove the last item from the array and output it into the console.
+arrShoppingList.pop()
+// 5. Sort the list alphabetically.
+arrShoppingList.sort()
+// 6. Find and output the index value of Milk.
+let indexOfMilk = arrShoppingList.indexOf('Milk')
+console.log("indexOfMilk: ", indexOfMilk);
+// 7. After Bananas, add Carrots and Lettuce.
+arrShoppingList.splice(1, 0 , "Carrots", "Lettuce")
+// 8. Create a new list containing Juice and Pop.
+let newList = ["Juice", "Pop"]
+// 9. Combine both lists, adding the new list twice to the end of the first list.
+let concatList = arrShoppingList.concat(newList).concat(newList)
+// 10. Get the last index value of Pop and output it to the console
+console.log("concatList: ", concatList);
+console.log(arrShoppingList);
+
+// (7) ['Bananas', 'Carrots', 'Lettuce', 'Eggs', 'Milk', 'Juice', 'Pop']
