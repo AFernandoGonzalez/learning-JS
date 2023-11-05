@@ -179,3 +179,33 @@ console.log(Object.values({
     work: "Went to work",
     "touched tree": "Touched a tree"
 }));
+
+
+
+
+// Push - adds to end
+// shift - removes first item
+//unshift - add item at the beginning 
+
+const allTasks = []
+
+const addTasks = (task)=>{
+    allTasks.push(task)
+}
+
+const getTask = () => {
+    console.log("shift: ",allTasks.shift());
+    return allTasks.shift()
+}
+
+const addUrgent = () => {
+    console.log("unshift: ", allTasks.unshift());
+    allTasks.unshift()
+}
+
+const tasksList = [ "one", "two", "three"]
+addTasks(tasksList)
+getTask()
+addUrgent()
+
+console.log("allTasks" , allTasks);
