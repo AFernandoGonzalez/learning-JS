@@ -303,3 +303,58 @@ people.friends.push(friend1, friend2, friend3)
 console.log("People: ", people);
 
 
+
+
+const theList = ['Laurence', 'Svekis', true, 35, null,undefined, { test: 'one', score: 55 }, ['one', 'two']];
+
+theList.shift()
+theList.pop()
+theList.unshift('FIRST')
+theList[3] = "hello world"
+theList[2] = "MIDDLE"
+theList.push("LAST")
+
+
+console.log("theList: ", theList);
+
+
+
+
+// Company product catalog
+// In this project, you will implement a data structure for a product catalog and create queries to retrieve data.
+// 1. Create an array to hold an inventory of store items.
+
+const inventory = []
+
+// 2. Create three items, each having the properties of name, model, cost, and quantity.
+const item1  = {
+    name: "item1",
+    model: "n/a",
+    cost: 12,
+    quantity: 4
+}
+const item2  = {
+    name: "item2",
+    model: "vitamins",
+    cost: 34,
+    quantity: 66
+}
+const item3  = {
+    name: "item3",
+    model: "energy",
+    cost: 120,
+    quantity: 0
+}
+// 3. Add all three objects to the main array using an array method, and then log the inventory array to the console.
+
+inventory.push(item1,item2, item3)
+
+// 4. Access the quantity element of your third item, and log it to the console. Experiment by adding and accessing more elements within your data structure.
+console.log("third element quantity: ", inventory[2].quantity);
+
+
+const myArr2 = [];
+myArr2[10] = 'test'
+console.log(myArr2);
+console.log(myArr2[2]);
+
